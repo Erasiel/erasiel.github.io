@@ -5,13 +5,24 @@
  * @param {String} format Output format of the visualized graph. For web-based applications "svg" is recommended. 
  */
 function visualizeWeightedDirectedGraph(graph, format = "svg") {
-    let nodes = Object.keys(graph);
-    let nodeCount = nodes.length;
+    let nodes = Object.keys(graph.nodes);
     
-    let graphvizString = "digraph G { ";
+    let graphvizString = 'digraph G { { node[style = filled]; ';
+
+    // Colors
+    nodes.forEach(node => {
+        if (graph.meta.colors[node]) {
+            graphvizString += `${node}[fillcolor = ${graph.meta.colors[node]}]`;
+        } else {
+            graphvizString += `${node}[fillcolor = white]`;
+        }
+    });
+    
+    graphvizString += "}";
+
 
     nodes.forEach(node => {
-        graph[node].forEach(edge => {
+        graph.nodes[node].forEach(edge => {
             graphvizString += `${node} -> ${edge.node} [label="${edge.weight}"]; `
         });
     });

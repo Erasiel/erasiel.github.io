@@ -5,13 +5,21 @@ const Alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M
  * 
  * Example output object:
  * {
- *   'A': [
- *     { node: 'B', weight: 10 },
- *     { node: 'C', weight: 12 },
+ *   meta: 
+ *   {
+ *     colors: { 'A': 'red', 'B': 'blue' }
+ *   },
+ *   nodes: 
+ *   {
+ *     'A': 
+ *     [
+ *       { node: 'B', weight: 10 },
+ *       { node: 'C', weight: 12 },
+ *       // ...
+ *     ],
+ *     'B': [],
  *     // ...
- *   ],
- *   'B': [],
- *   // ...
+ *   }
  * }
  *
  * @param {number} nodeCount Number of nodes in the output graph (<= 26 for consistent labeling)
@@ -20,11 +28,16 @@ const Alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M
  * @param {number} maxWeight 
  */
 function generateWeightedDirectedGraph(nodeCount = 10, edgeChance = 0.15, minWeight = 1, maxWeight = 20) {
-    let graph = {};
+    let graph = {
+        meta: {
+            colors: {}
+        },
+        nodes: {}
+    };
     let weightInterval = maxWeight - minWeight;
 
     for (let i = 0; i < nodeCount; i++) {
-        graph[Alphabet[i]] = [];
+        graph.nodes[Alphabet[i]] = [];
 
         for (let j = 0; j < nodeCount; j++) {
             if (i == j) continue;
@@ -33,7 +46,7 @@ function generateWeightedDirectedGraph(nodeCount = 10, edgeChance = 0.15, minWei
                 let weight = Math.floor(Math.random() * weightInterval) + minWeight;
                 let edge = { node: Alphabet[j], weight: weight };
 
-                graph[Alphabet[i]].push(edge);
+                graph.nodes[Alphabet[i]].push(edge);
             }
         }
     }

@@ -2,14 +2,33 @@ const testGraph = 'digraph G { Anna -> Cecil [label="3"]; Anna -> Denes [label="
 
 let graph;
 let img;
+let index = -1;
+let runningGraphs;
 
 function load() {
     refresh();
 }
 
 function refresh() {
-    let graph = generateWeightedDirectedGraph();
+    let graph = generateWeightedDirectedGraph(10, 0.2);
     let img = visualizeWeightedDirectedGraph(graph);
     
+    runningGraphs = runDijsktra(graph, 'A').graphs;
+    index = -1;
+
     $("#grapharea").html(img);
+}
+
+function next() {
+    if (index + 1 < runningGraphs.length) {
+        index++;
+        $("#grapharea").html(runningGraphs[index]);
+    }
+}
+
+function prev() {
+    if (index -1 >= 0) {
+        index--;
+        $("#grapharea").html(runningGraphs[index]);
+    }
 }
