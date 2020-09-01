@@ -12,12 +12,36 @@
     <script src='src/util/graph_visualizer.js'></script>
     <script src='src/algo/dijkstra.js'></script>
     <script src='src/main.js'></script>
+    <style>
+        div {
+            float: left;
+        }
+        table {
+            display: inline-block;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body onload="load()">
-    <h1>Graph generator v0.0</h1>
+    <h1>Dijkstra-algoritmus szimuláció</h1>
     <button onclick="refresh()">REFRESH</button>
     <button onclick="prev()">PREVIOUS</button>
     <button onclick="next()">NEXT</button>
     <div id="grapharea"></div>
+    <div id="statearea">
+        <table>
+            <thead>
+                <tr>
+                    <td>Csúcs</td>
+                    <td>Kezdőcsúcstól vett távolság</td>
+                    <td>Ős</td>
+                    <td>Állapot</td>
+                </tr>
+            </thead>
+            <tbody id = "body"></tbody>
+        </table>
+    </div>
 </body>
 </html>

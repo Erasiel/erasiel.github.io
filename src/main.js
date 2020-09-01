@@ -4,6 +4,7 @@ let graph;
 let img;
 let index = -1;
 let runningGraphs;
+let runningStates;
 
 function load() {
     refresh();
@@ -12,8 +13,9 @@ function load() {
 function refresh() {
     let graph = generateWeightedDirectedGraph(10, 0.2);
     let img = visualizeWeightedDirectedGraph(graph);
-    
-    runningGraphs = runDijsktra(graph, 'A').graphs;
+    let runningResults = runDijsktra(graph, 'A');
+    runningGraphs = runningResults.graphs;
+    runningStates = runningResults.state;
     index = -1;
 
     $("#grapharea").html(img);
@@ -22,6 +24,7 @@ function refresh() {
 function next() {
     if (index + 1 < runningGraphs.length) {
         index++;
+        setupState(runningStates[index]);
         $("#grapharea").html(runningGraphs[index]);
     }
 }
@@ -29,6 +32,43 @@ function next() {
 function prev() {
     if (index -1 >= 0) {
         index--;
+        setupState(runningStates[index]);
         $("#grapharea").html(runningGraphs[index]);
     }
+}
+
+function setupState(stateObject) {
+    let table = $("#body");
+    table.empty();
+
+    let nodes = Object.keys(stateObject);
+
+    nodes.forEach(node => {
+        let htmlStr = "<tr>";
+        htmlStr += `<td>${node}</td>`;
+
+        if (stateObject[node].distance === Infinity) {
+            htmlStr += "<td>&#8734;</td>";
+        } else {
+            htmlStr += `<td>${stateObject[node].distance}</td>`;
+        }
+        
+        if (stateObject[node].ancestor) {
+            htmlStr += `<td>${stateObject[node].ancestor}</td>`;
+        } else {
+            htmlStr += `<td>NULL</td>`;
+        }
+
+        if (stateObject[node].status === "unvisited") {
+            htmlStr += `<td>Még nem elért</td>`;
+        } else if (stateObject[node].status === "visited") {
+            htmlStr += `<td>Elért</td>`;
+        } else {
+            htmlStr += `<td>Lezárt</td>`;
+        }
+        
+        htmlStr += "</tr>";
+        table.append($(htmlStr));
+    });
+    console.log(stateObject)
 }

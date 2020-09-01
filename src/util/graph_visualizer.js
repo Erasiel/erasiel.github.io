@@ -29,8 +29,6 @@ function visualizeWeightedDirectedGraph(graph, format = "svg") {
 
     graphvizString += "}";
 
-    console.log(graphvizString);
-
     let img = Viz(graphvizString, format);
 
     return img;

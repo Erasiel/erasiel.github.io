@@ -39,7 +39,7 @@ function runDijsktra(graph, startNode) {
         }
 
         // Initialize next state
-        state.push(state[stateIndex]);
+        state.push($.extend(true, {}, state[stateIndex]));
         stateIndex++;
         let minDistNode = openNodes[minIndex];
         openNodes.splice(minIndex, 1);
