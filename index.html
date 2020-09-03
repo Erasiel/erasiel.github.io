@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>PLS WORK</title>
+    <title>Dijkstra-algoritmus</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
     <script src='lib/jquery.min.js'></script>
@@ -16,21 +16,33 @@
         div {
             float: left;
         }
+        #button-holder {
+            width: 100%;
+        }
+        #statearea {
+            margin-left: 1em;
+        }
         table {
             display: inline-block;
         }
         table, th, td {
             border: 1px solid black;
         }
+        td {
+            padding: 0.25   em;
+        }
     </style>
 </head>
 <body onload="load()">
     <h1>Dijkstra-algoritmus szimuláció</h1>
-    <button onclick="refresh()">REFRESH</button>
-    <button onclick="prev()">PREVIOUS</button>
-    <button onclick="next()">NEXT</button>
+    <div id="button-holder">
+        <button onclick="refresh()">Generálj újat</button>
+        <button onclick="prev()">Előző</button>
+        <button onclick="next()">Következő</button>
+    </div>
     <div id="grapharea"></div>
     <div id="statearea">
+        <h3 id="iteration-number"></h3>
         <table>
             <thead>
                 <tr>

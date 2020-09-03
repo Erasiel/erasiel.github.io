@@ -19,6 +19,7 @@ function refresh() {
     index = -1;
 
     $("#grapharea").html(img);
+    $("#body").empty();
 }
 
 function next() {
@@ -42,6 +43,12 @@ function setupState(stateObject) {
     table.empty();
 
     let nodes = Object.keys(stateObject);
+
+    if (index <= 0) {
+        $("#iteration-number").text(`Az algoritmus inicializálási lépése után az állapot: `);
+    } else {
+        $("#iteration-number").text(`Az algoritmus ${index}. iterációja után az állapot: `);
+    }
 
     nodes.forEach(node => {
         let htmlStr = "<tr>";
