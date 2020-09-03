@@ -3,6 +3,7 @@ function runDijsktra(graph, startNode) {
     let state = [];
     let openNodes = [];
     let graphs = [];
+    graph.meta.colors = {};
 
     graph.meta.colors[startNode] = "red";
 

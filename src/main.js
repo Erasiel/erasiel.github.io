@@ -11,15 +11,35 @@ function load() {
 }
 
 function refresh() {
-    let graph = generateWeightedDirectedGraph(10, 0.2);
-    let img = visualizeWeightedDirectedGraph(graph);
-    let runningResults = runDijsktra(graph, 'A');
-    runningGraphs = runningResults.graphs;
-    runningStates = runningResults.state;
-    index = -1;
+    graph = generateWeightedDirectedGraph(10, 0.2);
+    img = visualizeWeightedDirectedGraph(graph);
 
     $("#grapharea").html(img);
     $("#body").empty();
+    $("#statearea").toggleClass("hidden", true);
+}
+
+function run() {
+    let startnodeInput = $("#startnode-input");
+    let startNode = startnodeInput.val().toUpperCase();
+
+    if (!Object.keys(graph.nodes).includes(startNode)) {
+        startnodeInput.toggleClass("error-input", true);
+    } else {
+        startnodeInput.toggleClass("error-input", false);
+        
+        $("#grapharea").empty();
+
+        // Run the algorithm and save results
+        let runningResults = runDijsktra(graph, startNode);
+        runningGraphs = runningResults.graphs;
+        runningStates = runningResults.state;
+        index = -1;
+
+        // Show the initialization step
+        $("#statearea").toggleClass("hidden", false);
+        next();
+    }
 }
 
 function next() {
@@ -77,5 +97,4 @@ function setupState(stateObject) {
         htmlStr += "</tr>";
         table.append($(htmlStr));
     });
-    console.log(stateObject)
 }
