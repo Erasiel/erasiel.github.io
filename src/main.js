@@ -11,8 +11,8 @@ function load() {
 }
 
 function refresh() {
-    graph = generateWeightedDirectedGraph(10, 0.2);
-    img = visualizeWeightedDirectedGraph(graph);
+    graph = generateWeightedUndirectedGraph(10, 0.2);
+    img = visualizeWeightedUndirectedGraph(graph);
 
     $("#grapharea").html(img);
     $("#body").empty();
@@ -31,7 +31,7 @@ function run() {
         $("#grapharea").empty();
 
         // Run the algorithm and save results
-        let runningResults = runDijsktra(graph, startNode);
+        let runningResults = runDijsktra(graph, startNode, false);
         runningGraphs = runningResults.graphs;
         runningStates = runningResults.state;
         index = -1;

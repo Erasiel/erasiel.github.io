@@ -53,3 +53,46 @@ function generateWeightedDirectedGraph(nodeCount = 10, edgeChance = 0.15, minWei
 
     return graph;
 }
+
+function generateWeightedUndirectedGraph(nodeCount = 10, edgeChance = 0.15, minWeight = 1, maxWeight = 20) {
+    let graph = {
+        meta: {
+            colors: {}
+        },
+        nodes: {}
+    };
+    let weightInterval = maxWeight - minWeight;
+    let matrix = [];
+    
+    for (let i = 0; i < nodeCount; i++) {
+        matrix.push([]);
+    }
+
+    for (let i = 0; i < nodeCount; i++) {
+        if (!graph.nodes[Alphabet[i]]) {
+            graph.nodes[Alphabet[i]] = [];
+        }
+
+        for (let j = 0; j < nodeCount; j++) {
+            if (i == j || matrix[i][j] == 1 || matrix[j][i] == 1    ) continue;
+
+            if (Math.random() <= edgeChance) {
+                let weight = Math.floor(Math.random() * weightInterval) + minWeight;
+                let edge1 = { node: Alphabet[j], weight: weight };
+                let edge2 = { node: Alphabet[i], weight: weight };
+
+                if (!graph.nodes[Alphabet[j]]) {
+                    graph.nodes[Alphabet[j]] = [];
+                }
+                
+                graph.nodes[Alphabet[i]].push(edge1);
+                graph.nodes[Alphabet[j]].push(edge2);
+
+                matrix[i][j] = 1;
+                matrix[j][i] = 1;
+            }
+        }
+    }
+
+    return graph;
+}

@@ -33,3 +33,38 @@ function visualizeWeightedDirectedGraph(graph, format = "svg") {
 
     return img;
 }
+
+function visualizeWeightedUndirectedGraph(graph, format = "svg") {
+    let nodes = Object.keys(graph.nodes);
+    let drawnEdges = [];
+
+    let graphvizString = 'graph G { { node[style = filled]; ';
+
+    // Colors
+    nodes.forEach(node => {
+        if (graph.meta.colors[node]) {
+            graphvizString += `${node}[fillcolor = ${graph.meta.colors[node]}]`;
+        } else {
+            graphvizString += `${node}[fillcolor = white]`;
+        }
+    });
+    
+    graphvizString += "}";
+
+    // Edges
+    nodes.forEach(node => {
+        graph.nodes[node].forEach(edge => {
+            if (!drawnEdges.includes(node + edge.node) && !drawnEdges.includes(edge.node + node)) {
+                graphvizString += `${node} -- ${edge.node} [label="${edge.weight}"]; `
+                drawnEdges.push(node + edge.node);
+            }
+        });
+    });
+
+    graphvizString += "}";
+
+    let img = Viz(graphvizString, format);
+
+    return img;
+}
+
