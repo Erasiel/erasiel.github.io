@@ -68,3 +68,10 @@ function visualizeWeightedUndirectedGraph(graph, format = "svg") {
     return img;
 }
 
+function visualizeGraph(graph, format = "svg") {
+    if (graph.meta.directed == true) {
+        return visualizeWeightedDirectedGraph(graph, format);
+    } else {
+        return visualizeWeightedUndirectedGraph(graph, format);
+    }
+}

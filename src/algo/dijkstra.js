@@ -1,5 +1,4 @@
-function runDijsktra(graph, startNode, directed = true) {
-    console.log(graph);
+function runDijsktra(graph, startNode) {
     let nodeIds = Object.keys(graph.nodes);
     let state = [];
     let openNodes = [];
@@ -10,11 +9,7 @@ function runDijsktra(graph, startNode, directed = true) {
 
     state[0] = {};
 
-    if (directed) {
-        graphs.push(visualizeWeightedDirectedGraph(graph));
-    } else {
-        graphs.push(visualizeWeightedUndirectedGraph(graph));
-    }
+    graphs.push(visualizeGraph(graph));
 
     nodeIds.forEach(node => {
         if (node === startNode) {
@@ -72,11 +67,7 @@ function runDijsktra(graph, startNode, directed = true) {
         state[stateIndex][minDistNode].status = "closed";
         graph.meta.colors[minDistNode] = "green";
 
-        if (directed) {
-            graphs.push(visualizeWeightedDirectedGraph(graph));
-        } else {
-            graphs.push(visualizeWeightedUndirectedGraph(graph));
-        }
+        graphs.push(visualizeGraph(graph));
 
     }
 

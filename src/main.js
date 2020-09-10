@@ -7,12 +7,21 @@ let runningGraphs;
 let runningStates;
 
 function load() {
-    refresh();
+    refresh_undirected();
 }
 
-function refresh() {
+function refresh_undirected() {
     graph = generateWeightedUndirectedGraph(10, 0.2);
-    img = visualizeWeightedUndirectedGraph(graph);
+    img = visualizeGraph(graph);
+
+    $("#grapharea").html(img);
+    $("#body").empty();
+    $("#statearea").toggleClass("hidden", true);
+}
+
+function refresh_directed() {
+    graph = generateWeightedDirectedGraph(10, 0.2);
+    img = visualizeGraph(graph)
 
     $("#grapharea").html(img);
     $("#body").empty();
