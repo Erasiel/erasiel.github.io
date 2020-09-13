@@ -1,0 +1,44 @@
+div {
+    float: left;
+}
+
+input {
+    border: 1px solid black;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.error-input {
+    border: 2px solid red;
+}
+
+.button-holder {
+    width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#statearea {
+    margin-left: 1em;
+}
+
+table {
+    display: inline-block;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 0.25em;
+}
+
+#startnode-input {
+    width: 1em;
+}

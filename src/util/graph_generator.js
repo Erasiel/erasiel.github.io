@@ -76,7 +76,7 @@ function generateWeightedUndirectedGraph(nodeCount = 10, edgeChance = 0.15, minW
         }
 
         for (let j = 0; j < nodeCount; j++) {
-            if (i == j || matrix[i][j] == 1 || matrix[j][i] == 1    ) continue;
+            if (i == j || matrix[i][j] == 1 || matrix[j][i] == 1) continue;
 
             if (Math.random() <= edgeChance) {
                 let weight = Math.floor(Math.random() * weightInterval) + minWeight;
@@ -94,6 +94,49 @@ function generateWeightedUndirectedGraph(nodeCount = 10, edgeChance = 0.15, minW
                 matrix[j][i] = 1;
             }
         }
+    }
+
+    return graph;
+}
+
+function generateWeightedUndirectedConnectedGraph(nodeCount = 10, edgeChance = 0.15, minWeight = 1, maxWeight = 20) {
+    let graph = generateWeightedUndirectedGraph(nodeCount, edgeChance, minWeight, maxWeight);
+    let union = {};
+    
+    for (let i = 0; i < nodeCount; i++) {
+        union[Alphabet[i]] = Alphabet[i];
+    }
+
+    Object.keys(graph.nodes).forEach(node => {
+        let newParent = union[node];
+        
+        graph.nodes[node].forEach(edge => {
+            let oldParent = union[edge.node];
+
+            Object.keys(union).forEach(uNode => {
+                if (union[uNode] == oldParent) {
+                    union[uNode] = newParent;
+                }
+            });
+
+        });
+    });
+
+    separateParents = [];
+    Object.keys(union).forEach(node => {
+        if (!separateParents.includes(union[node])) {
+            separateParents.push(union[node]);
+        }
+    });
+
+
+    for (let i = 0; i < separateParents.length - 1; i++) {
+        let weight = Math.floor(Math.random() * (maxWeight - minWeight)) + minWeight;
+        let edge1 = { node: separateParents[i + 1], weight: weight };
+        let edge2 = { node: separateParents[i], weight: weight };
+
+        graph.nodes[separateParents[i]].push(edge1);
+        graph.nodes[separateParents[i + 1]].push(edge2);
     }
 
     return graph;

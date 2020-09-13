@@ -3,26 +3,21 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Dijkstra-algoritmus</title>
+    <title>Kruskal-algoritmus</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
     <script src='lib/jquery.min.js'></script>
     <script src='lib/viz.js'></script>
+    <script src='src/kruskal_main.js'></script>
     <script src='src/util/graph_generator.js'></script>
     <script src='src/util/graph_visualizer.js'></script>
-    <script src='src/algo/dijkstra.js'></script>
-    <script src='src/dijkstra_main.js'></script>
+    <script src='src/algo/kruskal.js'></script>
     <link rel="stylesheet" href="style/layout.css">
 </head>
 <body onload="load()">
-    <h1>Dijkstra-algoritmus szimuláció</h1>
+    <h1>Kruskal-algoritmus szimuláció</h1>
     <div class="button-holder">
-        <p>Add meg a kezdőcsúcsot: 
-            <input id="startnode-input" type="text"/>
-            <button onclick="run()">Futtasd</button>
-            <button onclick="refresh_undirected()">Generálj újat írányítatlan gráffal</button>
-            <button onclick="refresh_directed()">Generálj újat irányított gráffal</button>
-        </p>
+        <button onclick="run()">Futtasd</button>
+        <button onclick="refresh()">Generálj újat</button>
     </div>
     <div id="grapharea"></div>
     <div id="statearea">
@@ -34,10 +29,10 @@
         <table>
             <thead>
                 <tr>
-                    <td>Csúcs</td>
-                    <td>Kezdőcsúcstól vett távolság</td>
-                    <td>Ős</td>
-                    <td>Állapot</td>
+                    <td>Sorszám</td>
+                    <td>Él</td>
+                    <td>Súly</td>
+                    <td>Beválasztott</td>
                 </tr>
             </thead>
             <tbody id = "body"></tbody>
