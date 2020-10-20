@@ -3,7 +3,7 @@ function runPrim(graph, startNode) {
     let nodesInTree = {};
     let graphs = [];
     let nodeStates = [{}];
-    graph.meta.colors = {};
+    graph.meta.colors.node = {};
 
     Object.keys(graph.nodes).forEach(node => {
         remainingNodes[node] = {
@@ -20,7 +20,7 @@ function runPrim(graph, startNode) {
     });
 
     remainingNodes[startNode].dist = 0;
-    graph.meta.colors[startNode] = "red";
+    graph.meta.colors.node[startNode] = "red";
     nodeStates[0][startNode].dist = 0;
     //nodeStates[0][startNode].inTree = true;
     
@@ -57,7 +57,7 @@ function runPrim(graph, startNode) {
                     inTree: false
                 }
 
-                graph.meta.colors[edge.node] = "red";
+                graph.meta.colors.node[edge.node] = "red";
             }
         });
         
@@ -67,7 +67,7 @@ function runPrim(graph, startNode) {
         
         delete remainingNodes[minDistNode];
 
-        graph.meta.colors[minDistNode] = "green";
+        graph.meta.colors.node[minDistNode] = "green";
 
         graphs.push(visualizeGraph(graph));
 

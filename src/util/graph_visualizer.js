@@ -11,8 +11,8 @@ function visualizeWeightedDirectedGraph(graph, format = "svg") {
 
     // Colors
     nodes.forEach(node => {
-        if (graph.meta.colors[node]) {
-            graphvizString += `${node}[fillcolor = ${graph.meta.colors[node]}]`;
+        if (graph.meta.colors.node[node]) {
+            graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]}]`;
         } else {
             graphvizString += `${node}[fillcolor = white]`;
         }
@@ -42,8 +42,8 @@ function visualizeWeightedUndirectedGraph(graph, format = "svg") {
 
     // Colors
     nodes.forEach(node => {
-        if (graph.meta.colors[node]) {
-            graphvizString += `${node}[fillcolor = ${graph.meta.colors[node]}]`;
+        if (graph.meta.colors.node[node]) {
+            graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]}]`;
         } else {
             graphvizString += `${node}[fillcolor = white]`;
         }

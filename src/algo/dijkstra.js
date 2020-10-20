@@ -3,9 +3,9 @@ function runDijsktra(graph, startNode) {
     let state = [];
     let openNodes = [];
     let graphs = [];
-    graph.meta.colors = {};
+    graph.meta.colors.node = {};
 
-    graph.meta.colors[startNode] = "red";
+    graph.meta.colors.node[startNode] = "red";
 
     state[0] = {};
 
@@ -58,14 +58,14 @@ function runDijsktra(graph, startNode) {
                 }
 
                 if (!(openNodes.includes(edge.node))) {
-                    graph.meta.colors[edge.node] = "red";
+                    graph.meta.colors.node[edge.node] = "red";
                     openNodes.push(edge.node);
                 }
             }
         });
 
         state[stateIndex][minDistNode].status = "closed";
-        graph.meta.colors[minDistNode] = "green";
+        graph.meta.colors.node[minDistNode] = "green";
 
         graphs.push(visualizeGraph(graph));
 

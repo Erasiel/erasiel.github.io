@@ -18,7 +18,6 @@ function refresh() {
 }
 
 function run() {
-    console.log("RUN CALLED");
     let startnodeInput = $("#startnode-input");
     let startNode = startnodeInput.val().toUpperCase();
 

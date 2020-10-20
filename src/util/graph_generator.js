@@ -58,7 +58,10 @@ function generateWeightedDirectedGraph(nodeCount = 10, edgeChance = 0.15, minWei
 function generateWeightedUndirectedGraph(nodeCount = 10, edgeChance = 0.15, minWeight = 1, maxWeight = 20) {
     let graph = {
         meta: {
-            colors: {},
+            colors: {
+                node: {},
+                edge: {}
+            },
             directed: false
         },
         nodes: {}
