@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Prim-algoritmus</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/layout.css'>
+    <script src="lib/viz.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="src/util/graph_generator.js"></script>
+    <script src="src/util/graph_visualizer.js"></script>
+    <script src="src/prim_main.js"></script>
+    <script src="src/algo/prim.js"></script>
+</head>
+<body onload="load()">
+    <h1>Prim-algoritmus szimuláció</h1>
+    <div class="button-holder">
+        <p>Add meg a kezdőcsúcsot: 
+            <input id="startnode-input" type="text"/>
+            <button onclick="run()">Futtasd</button>
+            <button onclick="refresh()">Generálj újat</button>
+        </p>
+    </div>
+    <div id="grapharea"></div>
+    <div id="statearea">
+        <h3 id="iteration-number"></h3>
+        <div class="button-holder">
+            <button onclick="prev()">Előző</button>
+            <button onclick="next()">Következő</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Csúcs</td>
+                    <td>Távolság</td>
+                    <td>Ős</td>
+                    <td>Fában</td>
+                </tr>
+            </thead>
+            <tbody id = "body"></tbody>
+        </table>
+    </div>
+</body>
+</html>
