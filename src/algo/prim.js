@@ -4,6 +4,7 @@ function runPrim(graph, startNode) {
     let graphs = [];
     let nodeStates = [{}];
     graph.meta.colors.node = {};
+    graph.meta.colors.edge = {};
 
     Object.keys(graph.nodes).forEach(node => {
         remainingNodes[node] = {
@@ -65,9 +66,14 @@ function runPrim(graph, startNode) {
         
         nodesInTree[minDistNode] = remainingNodes[minDistNode];
         
-        delete remainingNodes[minDistNode];
-
         graph.meta.colors.node[minDistNode] = "green";
+
+        if (remainingNodes[minDistNode].ancestor) {
+            graph.meta.colors.edge[`${minDistNode}-${remainingNodes[minDistNode].ancestor}`] = "green";
+            graph.meta.colors.edge[`${remainingNodes[minDistNode].ancestor}-${minDistNode}`] = "green";
+        }
+
+        delete remainingNodes[minDistNode];
 
         graphs.push(visualizeGraph(graph));
 

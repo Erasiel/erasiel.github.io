@@ -55,7 +55,14 @@ function visualizeWeightedUndirectedGraph(graph, format = "svg") {
     nodes.forEach(node => {
         graph.nodes[node].forEach(edge => {
             if (!drawnEdges.includes(node + edge.node) && !drawnEdges.includes(edge.node + node)) {
-                graphvizString += `${node} -- ${edge.node} [label="${edge.weight}"]; `
+                graphvizString += `${node} -- ${edge.node} [label="${edge.weight}"`
+                
+                // Edge color
+                if (graph.meta.colors.edge[`${node}-${edge.node}`]) {
+                    graphvizString += ` color="${graph.meta.colors.edge[`${node}-${edge.node}`]}" penwidth = 3`;
+                }
+
+                graphvizString += "]; "
                 drawnEdges.push(node + edge.node);
             }
         });

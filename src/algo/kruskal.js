@@ -7,6 +7,7 @@ function runKruskal(graph) {
     let state = [];
     let nodeColors = {};
     graph.meta.colors.node = {};
+    graph.meta.colors.edge = {};
 
     Object.keys(graph.nodes).forEach((node, i) => {
         union[node] = node;
@@ -54,6 +55,8 @@ function runKruskal(graph) {
             let newParent; //= union[edges[i].n1];
 
             edges[i].chosen = true;
+            //console.log(`${union[edges[i].n1} -- ${union[edges[i].n2}`);
+            console.log(edges[i].n1 + " -- " + edges[i].n2);
 
             // Way too complicated
             if (nodeColors[union[edges[i].n1]]) {
@@ -72,7 +75,18 @@ function runKruskal(graph) {
             Object.keys(union).forEach(node => {
                 if (union[node] == oldParent) {
                     union[node] = newParent;
+                    let oldColor = graph.meta.colors.node[node];
                     graph.meta.colors.node[node] = nodeColors[newParent];
+                    graph.meta.colors.edge[`${edges[i].n1}-${edges[i].n2}`] = nodeColors[newParent];
+                    graph.meta.colors.edge[`${edges[i].n2}-${edges[i].n1}`] = nodeColors[newParent];
+                    if (oldColor) {
+                        Object.keys(graph.meta.colors.edge).forEach(key => {
+                            if (graph.meta.colors.edge[key] == oldColor) {
+                                graph.meta.colors.edge[key] = nodeColors[newParent];
+                            }
+                        });
+
+                    }
                 }
             });
 

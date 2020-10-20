@@ -42,3 +42,14 @@ td {
 #startnode-input {
     width: 1em;
 }
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    padding: 3px;
+    text-decoration: none;
+    color: initial;
+    border: 1px solid black;
+}
