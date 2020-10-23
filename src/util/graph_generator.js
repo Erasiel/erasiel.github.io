@@ -30,7 +30,10 @@ const Alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M
 function generateWeightedDirectedGraph(nodeCount = 10, edgeChance = 0.15, minWeight = 1, maxWeight = 20) {
     let graph = {
         meta: {
-            colors: {},
+            colors: {
+                node: {},
+                edge: {}
+            },
             directed: true
         },
         nodes: {}
