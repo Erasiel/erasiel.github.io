@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Szélességi keresés</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/viz.js'></script>
+    <script src='src/util/graph_generator.js'></script>
+    <script src='src/util/graph_visualizer.js'></script>
+    <script src='src/algo/bfs.js'></script>
+    <script src='src/bfs_main.js'></script>
+    <link rel="stylesheet" href="style/layout.css">
+</head>
+<body onload="load()">
+    <h1>Szélességi keresés (BFS) szimuláció</h1>
+    <a href="index.html" class="button">Főoldal</a>
+    <div class="button-holder">
+        <p>Add meg a kezdőcsúcsot: 
+            <input id="startnode-input" type="text"/>
+            <button onclick="run()">Futtasd</button>
+            <button onclick="refresh_undirected()">Generálj újat írányítatlan gráffal</button>
+            <button onclick="refresh_directed()">Generálj újat irányított gráffal</button>
+        </p>
+    </div>
+    <div id="grapharea"></div>
+    <div id="statearea">
+        <h3 id="iteration-number"></h3>
+        <div class="button-holder">
+            <button onclick="prev()">Előző</button>
+            <button onclick="next()">Következő</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Csúcs</td>
+                    <td>Kezdőcsúcstól vett távolság</td>
+                    <td>Ős</td>
+                </tr>
+            </thead>
+            <tbody id = "body"></tbody>
+        </table>
+        <h3>A "szürke csúcsok" sora:</h3>
+        <table>
+            <thead id="queue-indices">
+            </thead>
+            <tbody id="queue-values">
+            </tbody>
+        </table>
+    </div>
+    <div id="btreeholder">
+        <h3>A szélességi fa:</h3>
+        <div id="btreearea"></div>
+    </div>
+</body>
+</html>

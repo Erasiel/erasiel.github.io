@@ -12,7 +12,11 @@ function visualizeWeightedDirectedGraph(graph, format = "svg") {
     // Colors
     nodes.forEach(node => {
         if (graph.meta.colors.node[node]) {
-            graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]}]`;
+            if (graph.meta.colors.node[node] == "black") {
+                graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]} fontcolor=white]`;
+            } else {
+                graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]}]`;
+            }
         } else {
             graphvizString += `${node}[fillcolor = white]`;
         }
@@ -43,7 +47,11 @@ function visualizeWeightedUndirectedGraph(graph, format = "svg") {
     // Colors
     nodes.forEach(node => {
         if (graph.meta.colors.node[node]) {
-            graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]}]`;
+            if (graph.meta.colors.node[node] == "black") {
+                graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]} fontcolor=white]`;
+            } else {
+                graphvizString += `${node}[fillcolor = ${graph.meta.colors.node[node]}]`;
+            }
         } else {
             graphvizString += `${node}[fillcolor = white]`;
         }
@@ -81,4 +89,18 @@ function visualizeGraph(graph, format = "svg") {
     } else {
         return visualizeWeightedUndirectedGraph(graph, format);
     }
+}
+
+function visualizeTree(edges, format = "svg") {
+    let graphvizString = 'graph G { ';
+
+    edges.forEach(edge => {
+        graphvizString += `${edge};`
+    });
+
+    graphvizString += '}';
+
+    let img = Viz(graphvizString, format);
+
+    return img;
 }
