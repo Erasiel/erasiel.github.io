@@ -108,9 +108,10 @@ function visualizeTree(edges, format = "svg") {
 function visualizeInnerStructure(graph, format = "svg") {
     let graphvizString = 'digraph foo { size="7, 6" \n graph[nodesep="0.2"] \n rankdir=LR; \n node [shape=record]; \n';
     const arrowStyle = '[arrowhead=vee, arrowtail=dot, dir=both, tailclip=false]; \n';
+    let nodes = Object.keys(graph.nodes).sort().reverse();
 
     // Pre-declare all nodes
-    Object.keys(graph.nodes).sort().forEach((node, i) => {
+    nodes.forEach((node, i) => {
         graphvizString += `node${i} [label = "{ <data> ${node} | <ref> }"]; \n`;
         graphvizString += `null${i} [label="NULL" shape=box]; \n`;
         
@@ -121,7 +122,7 @@ function visualizeInnerStructure(graph, format = "svg") {
     });
 
     // Declare all connections
-    Object.keys(graph.nodes).sort().forEach((node, i) => {
+    nodes.forEach((node, i) => {
         // Handle empty list
         if (graph.nodes[node].length == 0) {
             graphvizString += `node${i}:ref:null${i} -> null${i}:data:w` + arrowStyle;

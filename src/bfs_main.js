@@ -18,6 +18,7 @@ function refresh_undirected() {
     img = visualizeGraph(graph);
     innerImg = visualizeInnerStructure(graph);
     innerShown = false;
+    index = -1;
 
     $("#grapharea").html(img);
     $("#body").empty();
@@ -31,6 +32,7 @@ function refresh_directed() {
     img = visualizeGraph(graph)
     innerImg = visualizeInnerStructure(graph);
     innerShown = false;
+    index = -1;
 
     $("#grapharea").html(img);
     $("#body").empty();
@@ -72,7 +74,6 @@ function run() {
         runningStates = runningResults.state;
         runningBreadthTrees = runningResults.breadthTrees;
         queues = runningResults.queues;
-        index = -1;
         innerShown = false;
 
         // Show the initialization step
