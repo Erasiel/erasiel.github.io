@@ -104,3 +104,50 @@ function visualizeTree(edges, format = "svg") {
 
     return img;
 }
+
+function visualizeInnerStructure(graph, format = "svg") {
+    let graphvizString = 'digraph foo { size="7, 6" \n graph[nodesep="0.2"] \n rankdir=LR; \n node [shape=record]; \n';
+    const arrowStyle = '[arrowhead=vee, arrowtail=dot, dir=both, tailclip=false]; \n';
+
+    // Pre-declare all nodes
+    Object.keys(graph.nodes).sort().forEach((node, i) => {
+        graphvizString += `node${i} [label = "{ <data> ${node} | <ref> }"]; \n`;
+        graphvizString += `null${i} [label="NULL" shape=box]; \n`;
+        
+        // Pre-declare all edges
+        graph.nodes[node].forEach((edge, j) => {
+            graphvizString += `edge${i}${j} [label="{ <data> ${edge.node} | <data> ${edge.weight} | <ref> }"]; \n`;
+        });
+    });
+
+    // Declare all connections
+    Object.keys(graph.nodes).sort().forEach((node, i) => {
+        // Handle empty list
+        if (graph.nodes[node].length == 0) {
+            graphvizString += `node${i}:ref:null${i} -> null${i}:data:w` + arrowStyle;
+        } else {
+            graphvizString += `node${i}:ref:edge${i}${0} -> edge${i}${0}:w` + arrowStyle;
+        }
+
+
+        graph.nodes[node].forEach((_edge, j) => {
+            // Handle NULL terminator
+            if (j == graph.nodes[node].length - 1) {
+                graphvizString += `edge${i}${j}:ref:null${i} -> null${i}:data:w` + arrowStyle;
+            } else {
+                graphvizString += `edge${i}${j}:ref:edge${i}${j + 1} -> edge${i}${j + 1}:w` + arrowStyle;
+            }
+        });
+    });
+
+    graphvizString += '}';
+    
+    let img = Viz(graphvizString, format);
+
+    // HACK - kids, don't try this at home
+    let ind = img.search("<?xml");
+    img = img.slice(ind-2, img.length);
+    console.log(img);
+
+    return img;
+}

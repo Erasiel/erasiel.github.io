@@ -25,7 +25,10 @@
             <button onclick="refresh_directed()">Generálj újat irányított gráffal</button>
         </p>
     </div>
-    <div id="grapharea"></div>
+    <div>
+        <button style="clear: both; display: block;" id="switch-view" onclick="switchView()">Mutasd a gráf belső szerkezetét!</button>
+        <div id="grapharea"></div>
+    </div>
     <div id="statearea">
         <h3 id="iteration-number"></h3>
         <div class="button-holder">

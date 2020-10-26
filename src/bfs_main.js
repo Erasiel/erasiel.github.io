@@ -1,5 +1,7 @@
 let graph;
 let img;
+let innerImg;
+let innerShown = false;
 let index = -1;
 let runningGraphs;
 let breadthTrees;
@@ -14,21 +16,42 @@ function load() {
 function refresh_undirected() {
     graph = generateWeightedUndirectedGraph(10, 0.2);
     img = visualizeGraph(graph);
+    innerImg = visualizeInnerStructure(graph);
+    innerShown = false;
 
     $("#grapharea").html(img);
     $("#body").empty();
     $("#statearea").toggleClass("hidden", true);
     $("#btreeholder").toggleClass("hidden", true);
+    $("#switch-view").text("Mutasd a gráf belső szerkezetét!");
 }
 
 function refresh_directed() {
     graph = generateWeightedDirectedGraph(10, 0.2);
     img = visualizeGraph(graph)
+    innerImg = visualizeInnerStructure(graph);
+    innerShown = false;
 
     $("#grapharea").html(img);
     $("#body").empty();
     $("#statearea").toggleClass("hidden", true);
     $("#btreeholder").toggleClass("hidden", true);
+    $("#switch-view").text("Mutasd a gráf belső szerkezetét!");
+}
+
+function switchView() {
+    if (innerShown) {
+        if (index != -1) {
+            $("#grapharea").html(runningGraphs[index]);
+        } else {
+            $("#grapharea").html(img);
+        }
+        $("#switch-view").text("Mutasd a gráf belső szerkezetét!");
+    } else {
+        $("#grapharea").html(innerImg);
+        $("#switch-view").text("Mutasd a gráfot!");
+    }
+    innerShown = !innerShown;
 }
 
 function run() {
@@ -50,16 +73,17 @@ function run() {
         runningBreadthTrees = runningResults.breadthTrees;
         queues = runningResults.queues;
         index = -1;
-
-        console.log(queues);
+        innerShown = false;
 
         // Show the initialization step
         $("#statearea").toggleClass("hidden", false);
         $("#btreeholder").toggleClass("hidden", false);
+        $("#switch-view").text("Mutasd a gráf belső szerkezetét!");
         next();
     }
 }
 function next() {
+    if (innerShown) return;
     if (index + 1 < runningGraphs.length) {
         index++;
         setupState(runningStates[index]);
@@ -70,6 +94,7 @@ function next() {
 }
 
 function prev() {
+    if (innerShown) return;
     if (index -1 >= 0) {
         index--;
         setupState(runningStates[index]);
