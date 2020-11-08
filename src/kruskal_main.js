@@ -94,11 +94,7 @@ function setupState(edges) {
 }
 
 function loadPrim() {
-    // Setup new link
-    let newLink = window.location.href.split("/");
-    newLink.pop();
-    newLink.push("prim.html");
-    newLink = newLink.join("/");
+    let newLink = setupNewLink("prim.html");
 
     // Request load to storage
     requestLoad();

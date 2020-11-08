@@ -177,6 +177,18 @@ function setupQueue(queue) {
         let htmlIndexStr = "<tr><td>ÜRES</td></tr>";
         indexTable.append($(htmlIndexStr));
     }
+}
 
+function loadDFS() {
+    let newLink = setupNewLink("dfs.html");
+    requestLoad();
 
+    window.location.href = newLink;
+}
+
+function loadDijkstra() {
+    let newLink = setupNewLink("dijkstra.html");
+    requestLoad();
+
+    window.location.href = newLink;
 }

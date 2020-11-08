@@ -109,12 +109,7 @@ function setupState(stateObject) {
 }
 
 function loadKruskal() {
-    // Setup new link
-    let newLink = window.location.href.split("/");
-    newLink.pop();
-    newLink.push("kruskal.html");
-    newLink = newLink.join("/");
-
+    let newLink = setupNewLink("kruskal.html");
     requestLoad();
 
     window.location.href = newLink;

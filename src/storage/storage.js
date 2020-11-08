@@ -1,6 +1,6 @@
 /**
  * Global storage for graph algorithm interchangeability
- * Be aware that for the easiest access to variables that
+ * Be aware that for the easiest storage of variables that
  * are accessible from multiple js files the localStorage
  * construction is used, which stores every variable as
  * !!! STRINGS !!!
@@ -77,4 +77,12 @@ function getStoredGraph() {
 
 function getStoredGraphInnerImg() {
     return localStorage.storedGraphInnerImg;
+}
+
+function setupNewLink(newHref) {
+    let newLink = window.location.href.split("/");
+    newLink.pop();
+    newLink.push(newHref);
+    newLink = newLink.join("/");
+    return newLink;
 }

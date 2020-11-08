@@ -145,3 +145,18 @@ function setupState(stateObject) {
         table.append($(htmlStr));
     });
 }
+
+function loadBFS() {
+    let newLink = setupNewLink("bfs.html");
+    requestLoad();
+
+    window.location.href = newLink;
+}
+
+function loadDijkstra() {
+    let newLink = setupNewLink("dijkstra.html");
+    requestLoad();
+
+    window.location.href = newLink;
+}
+

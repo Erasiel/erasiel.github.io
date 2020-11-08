@@ -52,4 +52,6 @@ a.button {
     text-decoration: none;
     color: initial;
     border: 1px solid black;
+
+    cursor: pointer;
 }

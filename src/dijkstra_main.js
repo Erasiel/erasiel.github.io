@@ -118,3 +118,17 @@ function setupState(stateObject) {
         table.append($(htmlStr));
     });
 }
+
+function loadBFS() {
+    let newLink = setupNewLink("bfs.html");
+    requestLoad();
+
+    window.location.href = newLink;
+}
+
+function loadDFS() {
+    let newLink = setupNewLink("dfs.html");
+    requestLoad();
+
+    window.location.href = newLink;
+}
