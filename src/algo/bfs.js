@@ -50,8 +50,6 @@ function runBFS(graph, startNode) {
         nodeData[nextNode].color = "black";
         graph.meta.colors.node[nextNode] = "black";
 
-        //console.log("NEXT NODE IS " + nextNode);
-
         state.push($.extend(true, {}, state[stateIndex]));
         queues.push($.extend(true, {}, nodesQueue));
         stateIndex++;

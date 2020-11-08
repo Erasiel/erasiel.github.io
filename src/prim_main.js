@@ -6,7 +6,6 @@ let runningStates;
 
 function load() {
     if (isLoadRequested() || isStoredGraphPrimCompatible()) {
-        console.log("called");
         graph = getStoredGraph().graph;
         img = getStoredGraph().img;
 

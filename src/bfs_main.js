@@ -10,7 +10,17 @@ let runningBreadthTrees;
 let queues;
 
 function load() {
-    refresh_undirected();
+    if (isLoadRequested() || isStoredGraphBFSCompatible()) {
+        graph = getStoredGraph().graph;
+        img = getStoredGraph().img;
+
+        innerImg = getStoredGraphInnerImg();
+        innerImg = visualizeInnerStructure(graph);
+
+        drawFirstGraph();
+    } else {
+        refresh_undirected();
+    }
 }
 
 function refresh_undirected() {
@@ -20,11 +30,9 @@ function refresh_undirected() {
     innerShown = false;
     index = -1;
 
-    $("#grapharea").html(img);
-    $("#body").empty();
-    $("#statearea").toggleClass("hidden", true);
-    $("#btreeholder").toggleClass("hidden", true);
-    $("#switch-view").text("Mutasd a gráf belső szerkezetét!");
+    storeGraph(graph, img);
+
+    drawFirstGraph();
 }
 
 function refresh_directed() {
@@ -34,6 +42,12 @@ function refresh_directed() {
     innerShown = false;
     index = -1;
 
+    storeGraph(graph, img);
+
+    drawFirstGraph();
+}
+
+function drawFirstGraph() {
     $("#grapharea").html(img);
     $("#body").empty();
     $("#statearea").toggleClass("hidden", true);

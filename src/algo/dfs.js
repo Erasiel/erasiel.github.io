@@ -20,7 +20,6 @@ function traverse(node) {
         depthForestEdges.push(`${nodeData[node].parent} -- ${node}`);
     } else {
         depthForestEdges.push(`${node}`);
-        console.log("NO PARENT NODE: " + node);
         noParent = true;
     }
     depthForests.push(visualizeTree(depthForestEdges));
