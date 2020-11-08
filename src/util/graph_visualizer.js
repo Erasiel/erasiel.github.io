@@ -106,7 +106,7 @@ function visualizeTree(edges, format = "svg") {
 }
 
 function visualizeInnerStructure(graph, format = "svg") {
-    let graphvizString = 'digraph foo { size="7, 6" \n graph[nodesep="0.2"] \n rankdir=LR; \n node [shape=record]; \n';
+    let graphvizString = 'digraph G { size="7, 6" \n graph[nodesep="0.2"] \n rankdir=LR; \n node [shape=record]; \n';
     const arrowStyle = '[arrowhead=vee, arrowtail=dot, dir=both, tailclip=false]; \n';
     let nodes = Object.keys(graph.nodes).sort().reverse();
 
@@ -148,7 +148,6 @@ function visualizeInnerStructure(graph, format = "svg") {
     // HACK - kids, don't try this at home
     let ind = img.search("<?xml");
     img = img.slice(ind-2, img.length);
-    console.log(img);
 
     return img;
 }

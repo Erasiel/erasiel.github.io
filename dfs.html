@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mélységi keresés</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/viz.js'></script>
+    <script src='src/util/graph_generator.js'></script>
+    <script src='src/util/graph_visualizer.js'></script>
+    <script src='src/algo/dfs.js'></script>
+    <script src='src/dfs_main.js'></script>
+    <link rel="stylesheet" href="style/layout.css">
+</head>
+<body onload="load()">
+    <h1>Mélységi keresés (DFS) szimuláció</h1>
+    <a href="index.html" class="button">Főoldal</a>
+    <div class="button-holder">
+        <p>
+            <button onclick="run()">Futtasd</button>
+            <button onclick="refresh_undirected()">Generálj újat írányítatlan gráffal</button>
+            <button onclick="refresh_directed()">Generálj újat irányított gráffal</button>
+        </p>
+    </div>
+    <div>
+        <button style="clear: both; display: block;" id="switch-view" onclick="switchView()">Mutasd a gráf belső szerkezetét!</button>
+        <div id="grapharea"></div>
+    </div>
+    <div id="statearea">
+        <h3 id="iteration-number"></h3>
+        <div class="button-holder">
+            <button onclick="prev()">Előző</button>
+            <button onclick="next()">Következő</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Csúcs</td>
+                    <td>Ős</td>
+                    <td>Elérés</td>
+                    <td>Elhagyás</td>
+                </tr>
+            </thead>
+            <tbody id = "body"></tbody>
+        </table>
+    </div>
+    <div id="btreeholder">
+        <h3>A mélységi feszítőerdő:</h3>
+        <div id="btreearea"></div>
+    </div>
+</body>
+</html>
