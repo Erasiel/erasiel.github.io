@@ -5,6 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Kruskal-algoritmus</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="src/storage/storage.js"></script>
     <script src='lib/jquery.min.js'></script>
     <script src='lib/viz.js'></script>
     <script src='src/kruskal_main.js'></script>
@@ -16,6 +17,7 @@
 <body onload="load()">
     <h1>Kruskal-algoritmus szimuláció</h1>
     <a href="index.html" class="button">Főoldal</a>
+    <a onclick="loadPrim()" class="button">Prim-algoritmus</a>
     <div class="button-holder">
         <p> <!-- easiest formatting hack ever -->
             <button onclick="run()">Futtasd</button>

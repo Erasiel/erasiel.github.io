@@ -5,13 +5,26 @@ let runningGraphs;
 let runningStates;
 
 function load() {
-    refresh();
+    if (isLoadRequested() || isStoredGraphKruskalCompatible()) {
+        graph = getStoredGraph().graph;
+        img = getStoredGraph().img;
+
+        drawFirstGraph();
+    } else {
+        refresh();
+    }
 }
 
 function refresh() {
     graph = generateWeightedUndirectedConnectedGraph();
     img = visualizeGraph(graph);
 
+    storeGraph(graph, img);
+
+    drawFirstGraph();
+}
+
+function drawFirstGraph() {
     $("#grapharea").html(img);
     $("#body").empty();
     $("#statearea").toggleClass("hidden", true);
@@ -78,4 +91,17 @@ function setupState(edges) {
     });
 
     table.append($(htmlStr));
+}
+
+function loadPrim() {
+    // Setup new link
+    let newLink = window.location.href.split("/");
+    newLink.pop();
+    newLink.push("prim.html");
+    newLink = newLink.join("/");
+
+    // Request load to storage
+    requestLoad();
+
+    window.location.href = newLink;
 }

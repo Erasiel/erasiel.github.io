@@ -7,7 +7,13 @@ const Alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M
  * {
  *   meta: 
  *   {
- *     colors: { 'A': 'red', 'B': 'blue' }
+ *     colors: 
+ *     {
+ *       node: { 'A': 'red', 'B': 'blue' },
+ *       edge: {}
+ *     }
+ *     directed: true,
+ *     connected: false
  *   },
  *   nodes: 
  *   {
@@ -34,7 +40,8 @@ function generateWeightedDirectedGraph(nodeCount = 10, edgeChance = 0.15, minWei
                 node: {},
                 edge: {}
             },
-            directed: true
+            directed: true,
+            connected: false
         },
         nodes: {}
     };
@@ -65,7 +72,8 @@ function generateWeightedUndirectedGraph(nodeCount = 10, edgeChance = 0.15, minW
                 node: {},
                 edge: {}
             },
-            directed: false
+            directed: false,
+            connected: false
         },
         nodes: {}
     };
@@ -108,7 +116,7 @@ function generateWeightedUndirectedGraph(nodeCount = 10, edgeChance = 0.15, minW
 function generateWeightedUndirectedConnectedGraph(nodeCount = 10, edgeChance = 0.15, minWeight = 1, maxWeight = 20) {
     let graph = generateWeightedUndirectedGraph(nodeCount, edgeChance, minWeight, maxWeight);
     let union = {};
-    
+
     for (let i = 0; i < nodeCount; i++) {
         union[Alphabet[i]] = Alphabet[i];
     }
@@ -144,6 +152,8 @@ function generateWeightedUndirectedConnectedGraph(nodeCount = 10, edgeChance = 0
         graph.nodes[separateParents[i]].push(edge1);
         graph.nodes[separateParents[i + 1]].push(edge2);
     }
+
+    graph.meta.connected = true;
 
     return graph;
 }

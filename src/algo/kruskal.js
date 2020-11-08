@@ -55,8 +55,6 @@ function runKruskal(graph) {
             let newParent; //= union[edges[i].n1];
 
             edges[i].chosen = true;
-            //console.log(`${union[edges[i].n1} -- ${union[edges[i].n2}`);
-            console.log(edges[i].n1 + " -- " + edges[i].n2);
 
             // Way too complicated
             if (nodeColors[union[edges[i].n1]]) {

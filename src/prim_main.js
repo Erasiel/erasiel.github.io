@@ -5,13 +5,27 @@ let runningGraphs;
 let runningStates;
 
 function load() {
-    refresh();
+    if (isLoadRequested() || isStoredGraphPrimCompatible()) {
+        console.log("called");
+        graph = getStoredGraph().graph;
+        img = getStoredGraph().img;
+
+        drawFirstGraph();
+    } else {
+        refresh();
+    }
 }
 
 function refresh() {
     graph = generateWeightedUndirectedConnectedGraph();
     img = visualizeGraph(graph);
 
+    storeGraph(graph, img);
+
+    drawFirstGraph();
+}
+
+function drawFirstGraph() {
     $("#grapharea").html(img);
     $("#body").empty();
     $("#statearea").toggleClass("hidden", true);
@@ -93,4 +107,17 @@ function setupState(stateObject) {
     });
 
     table.append($(htmlStr));
+}
+
+function loadKruskal() {
+    // Setup new link
+    let newLink = window.location.href.split("/");
+    newLink.pop();
+    newLink.push("kruskal.html");
+    newLink = newLink.join("/");
+
+    requestLoad();
+
+    window.location.href = newLink;
+
 }
