@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jane Doe – PhD Researcher</title>
+
+  <!-- Google Fonts: Lora (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 icons (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="#home">Jane Doe</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       HERO
+       ================================================================ -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+
+      <div class="hero-photo">
+        <!--
+          TO ADD YOUR PHOTO: replace the entire <div class="photo-placeholder">
+          block below with:
+            <img src="photo.jpg" alt="Jane Doe" class="hero-photo-img">
+          and upload your photo to the same folder as index.html.
+        -->
+        <div class="photo-placeholder">
+          <i class="fa-solid fa-user"></i>
+          <span>Your Photo</span>
+        </div>
+      </div>
+
+      <div class="hero-info">
+        <h1 class="hero-name">Jane Doe</h1>
+        <p class="hero-title">PhD Candidate</p>
+
+        <p class="hero-detail">
+          <i class="fa-solid fa-building-columns"></i>
+          Department of Computer Science &middot; University of Example
+        </p>
+        <p class="hero-detail">
+          <i class="fa-solid fa-envelope"></i>
+          j.doe@example.edu
+        </p>
+        <p class="hero-detail">
+          <i class="fa-solid fa-location-dot"></i>
+          Example City, EX
+        </p>
+
+        <!-- Social / profile links -->
+        <div class="hero-links">
+          <a href="#" class="icon-link" title="Google Scholar" target="_blank" rel="noopener">
+            <i class="fa-brands fa-google-scholar"></i>
+          </a>
+          <a href="#" class="icon-link" title="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="icon-link" title="GitHub" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="#" class="icon-link" title="Curriculum Vitae (PDF)" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-lines"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       ABOUT
+       ================================================================ -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-content">
+        <p>
+          I am a PhD candidate in the Department of Computer Science at the University of Example,
+          advised by <a href="#">Prof. John Smith</a>. My research sits at the intersection of
+          <strong>machine learning</strong>, <strong>natural language processing</strong>, and
+          <strong>computational social science</strong>.
+        </p>
+        <p>
+          I am broadly interested in building robust AI systems that can reason about language in
+          complex, real-world settings. My current work focuses on developing methods for
+          low-resource NLP and evaluating the factuality of large language models.
+        </p>
+        <p>
+          Before starting my PhD, I received a B.Sc. in Mathematics and Computer Science from
+          Example College (2021) and spent a year as a research assistant at the Institute of
+          Advanced Computing. I have also interned at <strong>Company A</strong> and
+          <strong>Company B</strong>.
+        </p>
+
+        <div class="interests">
+          <h3>Research Interests</h3>
+          <ul class="tag-list">
+            <li>Natural Language Processing</li>
+            <li>Large Language Models</li>
+            <li>Low-Resource Learning</li>
+            <li>Factuality &amp; Hallucination</li>
+            <li>Computational Social Science</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       PUBLICATIONS
+       To mark a paper as "selected" (shown by default):
+         1. Add it to #pubSelected below.
+         2. Also add class="pub-card pub-highlighted" to its entry in #pubAll.
+       Papers without pub-highlighted in #pubAll are shown only in the full list.
+       ================================================================ -->
+  <section class="section section-alt" id="publications">
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+
+      <!-- Pill toggle -->
+      <div class="pub-filter" role="group" aria-label="Publication filter">
+        <button class="pub-filter-btn active" data-target="selected">Selected</button>
+        <button class="pub-filter-btn" data-target="all">All</button>
+      </div>
+
+      <!-- Selected / highlighted papers — any year -->
+      <div id="pubSelected">
+
+        <article class="pub-card">
+          <div class="pub-meta">
+            <span class="pub-venue venue-conf">NeurIPS 2025</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Faithful Retrieval: Grounding Language Models in Verifiable Evidence</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Alice Brown, Robert Chen, John Smith
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <a href="#" class="pub-link"><i class="fa-brands fa-github"></i> Code</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@inproceedings{doe2025faithful,
+  title     = {Faithful Retrieval: Grounding Language Models in Verifiable Evidence},
+  author    = {Doe, Jane and Brown, Alice and Chen, Robert and Smith, John},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025},
+  volume    = {38},
+  publisher = {Curran Associates, Inc.}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <div class="pub-meta">
+            <span class="pub-venue venue-conf">ACL 2025</span>
+            <span class="pub-award"><i class="fa-solid fa-award"></i> Outstanding Paper Award</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Cross-lingual Transfer in Low-Resource Settings: A Benchmark Study</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Maria Lopez, John Smith
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <a href="#" class="pub-link"><i class="fa-solid fa-database"></i> Dataset</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@inproceedings{doe2025crosslingual,
+  title     = {Cross-lingual Transfer in Low-Resource Settings: {A} Benchmark Study},
+  author    = {Doe, Jane and Lopez, Maria and Smith, John},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics},
+  year      = {2025},
+  publisher = {Association for Computational Linguistics}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+        <!-- Highlighted paper from an earlier year -->
+        <article class="pub-card">
+          <div class="pub-meta">
+            <span class="pub-venue venue-workshop">EMNLP Workshop 2024</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Probing Temporal Reasoning in Transformer-Based Models</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Robert Chen
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@inproceedings{doe2024probing,
+  title     = {Probing Temporal Reasoning in Transformer-Based Models},
+  author    = {Doe, Jane and Chen, Robert},
+  booktitle = {Findings of the 2024 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2024},
+  publisher = {Association for Computational Linguistics}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+      </div><!-- /pubSelected -->
+
+      <!-- Full chronological list — hidden by default.
+           Mark highlighted papers with pub-highlighted so they get an accent border. -->
+      <div id="pubAll" hidden>
+
+        <div class="pub-year-label">2025</div>
+
+        <article class="pub-card pub-highlighted">
+          <div class="pub-meta">
+            <span class="pub-venue venue-conf">NeurIPS 2025</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Faithful Retrieval: Grounding Language Models in Verifiable Evidence</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Alice Brown, Robert Chen, John Smith
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <a href="#" class="pub-link"><i class="fa-brands fa-github"></i> Code</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@inproceedings{doe2025faithful,
+  title     = {Faithful Retrieval: Grounding Language Models in Verifiable Evidence},
+  author    = {Doe, Jane and Brown, Alice and Chen, Robert and Smith, John},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025},
+  volume    = {38},
+  publisher = {Curran Associates, Inc.}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+        <article class="pub-card pub-highlighted">
+          <div class="pub-meta">
+            <span class="pub-venue venue-conf">ACL 2025</span>
+            <span class="pub-award"><i class="fa-solid fa-award"></i> Outstanding Paper Award</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Cross-lingual Transfer in Low-Resource Settings: A Benchmark Study</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Maria Lopez, John Smith
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <a href="#" class="pub-link"><i class="fa-solid fa-database"></i> Dataset</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@inproceedings{doe2025crosslingual,
+  title     = {Cross-lingual Transfer in Low-Resource Settings: {A} Benchmark Study},
+  author    = {Doe, Jane and Lopez, Maria and Smith, John},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics},
+  year      = {2025},
+  publisher = {Association for Computational Linguistics}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+        <div class="pub-year-label">2024</div>
+
+        <article class="pub-card pub-highlighted">
+          <div class="pub-meta">
+            <span class="pub-venue venue-workshop">EMNLP Workshop 2024</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Probing Temporal Reasoning in Transformer-Based Models</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Robert Chen
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@inproceedings{doe2024probing,
+  title     = {Probing Temporal Reasoning in Transformer-Based Models},
+  author    = {Doe, Jane and Chen, Robert},
+  booktitle = {Findings of the 2024 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2024},
+  publisher = {Association for Computational Linguistics}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <div class="pub-meta">
+            <span class="pub-venue venue-preprint">arXiv 2024</span>
+          </div>
+          <h3 class="pub-title">
+            <a href="#">Evaluating Consistency in Large Language Model Outputs Across Domains</a>
+          </h3>
+          <p class="pub-authors">
+            <strong>Jane Doe</strong>, Alice Brown, John Smith
+          </p>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fa-solid fa-book-open"></i> Paper</a>
+            <button type="button" class="pub-link cite-btn" data-bibtex="@article{doe2024consistency,
+  title   = {Evaluating Consistency in Large Language Model Outputs Across Domains},
+  author  = {Doe, Jane and Brown, Alice and Smith, John},
+  journal = {arXiv preprint arXiv:2401.00000},
+  year    = {2024}
+}"><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </article>
+
+      </div><!-- /pubAll -->
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       TEACHING
+       ================================================================ -->
+  <section class="section" id="teaching">
+    <div class="container">
+      <h2 class="section-title">Teaching</h2>
+      <p class="section-subtitle">
+        I am passionate about mentoring and fostering an inclusive, supportive learning environment.
+      </p>
+
+      <h3 class="teaching-subheading">Courses</h3>
+
+      <div class="teaching-grid">
+
+        <div class="teaching-card">
+          <div class="teaching-body">
+            <h3>CS 4821 &ndash; Introduction to Machine Learning</h3>
+            <p class="teaching-role">
+              <i class="fa-solid fa-circle-dot"></i> Teaching Assistant &middot; Fall 2024, Fall 2025
+            </p>
+            <p>
+              Held weekly office hours, designed problem sets, and graded assignments for a
+              120-student undergraduate course covering classical ML and deep learning.
+            </p>
+          </div>
+        </div>
+
+        <div class="teaching-card">
+          <div class="teaching-body">
+            <h3>CS 5731 &ndash; Natural Language Processing</h3>
+            <p class="teaching-role">
+              <i class="fa-solid fa-circle-dot"></i> Guest Lecturer &middot; Spring 2025
+            </p>
+            <p>
+              Delivered two lectures on large language models and in-context learning for a
+              graduate-level NLP course of 60 students.
+            </p>
+          </div>
+        </div>
+
+        <div class="teaching-card">
+          <div class="teaching-body">
+            <h3>CS 1010 &ndash; Introduction to Programming</h3>
+            <p class="teaching-role">
+              <i class="fa-solid fa-circle-dot"></i> Teaching Assistant &middot; Spring 2023
+            </p>
+            <p>
+              Ran weekly lab sections and assisted first-year students with Python and
+              algorithmic thinking in a 200-student introductory course.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 class="teaching-subheading teaching-subheading--large">Thesis Supervision</h3>
+
+      <div class="thesis-card">
+        <p>
+          I actively supervise Bachelor's and Master's thesis students and welcome motivated
+          students to work with me on research problems at the frontier of natural language
+          processing and machine learning.
+        </p>
+        <p>
+          If you are interested in writing your thesis in one of my research areas, please
+          get in touch with a brief description of your background and what draws you to the
+          topic. I try to find projects that match both your interests and the open research
+          questions in my group.
+        </p>
+
+        <div class="thesis-areas">
+          <p class="thesis-areas-label">Open research areas</p>
+          <ul class="tag-list">
+            <li>Natural Language Processing</li>
+            <li>Large Language Models</li>
+            <li>Low-Resource Learning</li>
+            <li>Factuality &amp; Hallucination</li>
+            <li>Computational Social Science</li>
+          </ul>
+        </div>
+
+        <a href="mailto:j.doe@example.edu" class="thesis-cta">
+          <i class="fa-solid fa-paper-plane"></i> Get in touch
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; 2025 Jane Doe</p>
+      <a href="#home" class="footer-top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       BIBTEX MODAL
+       ================================================================ -->
+  <div id="citeModal" class="cite-modal" hidden role="dialog" aria-modal="true" aria-labelledby="citeModalTitle">
+    <div class="cite-modal-backdrop"></div>
+    <div class="cite-modal-box">
+      <div class="cite-modal-header">
+        <span class="cite-modal-title" id="citeModalTitle">BibTeX</span>
+        <button class="cite-modal-close" id="citeModalClose" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <pre class="cite-modal-code" id="citeModalCode"></pre>
+      <div class="cite-modal-footer">
+        <button class="cite-copy-btn" id="citeCopyBtn">
+          <i class="fa-regular fa-copy"></i> Copy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
