@@ -1,0 +1,72 @@
+[
+  {
+    "id": "doe2025faithful",
+    "title": "Faithful Retrieval: Grounding Language Models in Verifiable Evidence",
+    "authors": ["Jane Doe", "Alice Brown", "Robert Chen", "John Smith"],
+    "highlightedAuthor": "Jane Doe",
+    "year": 2025,
+    "venue": {
+      "label": "NeurIPS 2025",
+      "type": "conf"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper",   "label": "Paper", "url": "#" },
+      { "type": "code",    "label": "Code",  "url": "#" }
+    ],
+    "bibtex": "@inproceedings{doe2025faithful,\n  title     = {Faithful Retrieval: Grounding Language Models in Verifiable Evidence},\n  author    = {Doe, Jane and Brown, Alice and Chen, Robert and Smith, John},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year      = {2025},\n  volume    = {38},\n  publisher = {Curran Associates, Inc.}\n}",
+    "highlighted": true
+  },
+  {
+    "id": "doe2025crosslingual",
+    "title": "Cross-lingual Transfer in Low-Resource Settings: A Benchmark Study",
+    "authors": ["Jane Doe", "Maria Lopez", "John Smith"],
+    "highlightedAuthor": "Jane Doe",
+    "year": 2025,
+    "venue": {
+      "label": "ACL 2025",
+      "type": "conf"
+    },
+    "award": "Outstanding Paper Award",
+    "links": [
+      { "type": "paper",   "label": "Paper",   "url": "#" },
+      { "type": "dataset", "label": "Dataset", "url": "#" }
+    ],
+    "bibtex": "@inproceedings{doe2025crosslingual,\n  title     = {Cross-lingual Transfer in Low-Resource Settings: {A} Benchmark Study},\n  author    = {Doe, Jane and Lopez, Maria and Smith, John},\n  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics},\n  year      = {2025},\n  publisher = {Association for Computational Linguistics}\n}",
+    "highlighted": true
+  },
+  {
+    "id": "doe2024probing",
+    "title": "Probing Temporal Reasoning in Transformer-Based Models",
+    "authors": ["Jane Doe", "Robert Chen"],
+    "highlightedAuthor": "Jane Doe",
+    "year": 2024,
+    "venue": {
+      "label": "EMNLP Workshop 2024",
+      "type": "workshop"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper", "label": "Paper", "url": "#" }
+    ],
+    "bibtex": "@inproceedings{doe2024probing,\n  title     = {Probing Temporal Reasoning in Transformer-Based Models},\n  author    = {Doe, Jane and Chen, Robert},\n  booktitle = {Findings of the 2024 Conference on Empirical Methods in Natural Language Processing},\n  year      = {2024},\n  publisher = {Association for Computational Linguistics}\n}",
+    "highlighted": true
+  },
+  {
+    "id": "doe2024consistency",
+    "title": "Evaluating Consistency in Large Language Model Outputs Across Domains",
+    "authors": ["Jane Doe", "Alice Brown", "John Smith"],
+    "highlightedAuthor": "Jane Doe",
+    "year": 2024,
+    "venue": {
+      "label": "arXiv 2024",
+      "type": "preprint"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper", "label": "Paper", "url": "#" }
+    ],
+    "bibtex": "@article{doe2024consistency,\n  title   = {Evaluating Consistency in Large Language Model Outputs Across Domains},\n  author  = {Doe, Jane and Brown, Alice and Smith, John},\n  journal = {arXiv preprint arXiv:2401.00000},\n  year    = {2024}\n}",
+    "highlighted": false
+  }
+]
