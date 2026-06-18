@@ -1,72 +1,126 @@
 [
   {
-    "id": "doe2025faithful",
-    "title": "Faithful Retrieval: Grounding Language Models in Verifiable Evidence",
-    "authors": ["Jane Doe", "Alice Brown", "Robert Chen", "John Smith"],
-    "highlightedAuthor": "Jane Doe",
-    "year": 2025,
+    "id": "Su_2026_CVPR",
+    "title": "ATAC: Augmentation-Based Test-Time Adversarial Correction for CLIP",
+    "authors": ["Linxiang Su", "András Balogh"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2026,
     "venue": {
-      "label": "NeurIPS 2025",
+      "label": "CVPR Workshops 2026",
       "type": "conf"
     },
     "award": null,
     "links": [
-      { "type": "paper",   "label": "Paper", "url": "#" },
-      { "type": "code",    "label": "Code",  "url": "#" }
+      { "type": "paper",   "label": "Paper", "url": "https://openaccess.thecvf.com/content/CVPR2026W/6thAdvML%40CV/html/Su_ATAC_Augmentation-Based_Test-Time_Adversarial_Correction_for_CLIP_CVPRW_2026_paper.html" },
+      { "type": "code",    "label": "Code",  "url": "https://github.com/kylin0421/ATAC/" }
     ],
-    "bibtex": "@inproceedings{doe2025faithful,\n  title     = {Faithful Retrieval: Grounding Language Models in Verifiable Evidence},\n  author    = {Doe, Jane and Brown, Alice and Chen, Robert and Smith, John},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year      = {2025},\n  volume    = {38},\n  publisher = {Curran Associates, Inc.}\n}",
-    "highlighted": true
+    "bibtex": "@InProceedings{Su_2026_CVPR,\n    author    = {Su, Linxiang and Balogh, Andr\\'as},\n    title     = {ATAC: Augmentation-Based Test-Time Adversarial Correction for CLIP},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},\n    month     = {June},\n    year      = {2026},\n    pages     = {541-551}\n}",
+    "highlighted": false
   },
   {
-    "id": "doe2025crosslingual",
-    "title": "Cross-lingual Transfer in Low-Resource Settings: A Benchmark Study",
-    "authors": ["Jane Doe", "Maria Lopez", "John Smith"],
-    "highlightedAuthor": "Jane Doe",
-    "year": 2025,
+    "id": "guo2026wmattackautomatedattacksearch",
+    "title": "WMAttack: Automated Attack Search for Adversarial Evaluation of World-Model Agents",
+    "authors": ["Zhixiang Guo", "Siyuan Liang", "Shi Fu", "Cheng Guo", "András Balogh", "Márk Jelasity", "Dacheng Tao"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2026,
     "venue": {
-      "label": "ACL 2025",
-      "type": "conf"
-    },
-    "award": "Outstanding Paper Award",
-    "links": [
-      { "type": "paper",   "label": "Paper",   "url": "#" },
-      { "type": "dataset", "label": "Dataset", "url": "#" }
-    ],
-    "bibtex": "@inproceedings{doe2025crosslingual,\n  title     = {Cross-lingual Transfer in Low-Resource Settings: {A} Benchmark Study},\n  author    = {Doe, Jane and Lopez, Maria and Smith, John},\n  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics},\n  year      = {2025},\n  publisher = {Association for Computational Linguistics}\n}",
-    "highlighted": true
-  },
-  {
-    "id": "doe2024probing",
-    "title": "Probing Temporal Reasoning in Transformer-Based Models",
-    "authors": ["Jane Doe", "Robert Chen"],
-    "highlightedAuthor": "Jane Doe",
-    "year": 2024,
-    "venue": {
-      "label": "EMNLP Workshop 2024",
-      "type": "workshop"
-    },
-    "award": null,
-    "links": [
-      { "type": "paper", "label": "Paper", "url": "#" }
-    ],
-    "bibtex": "@inproceedings{doe2024probing,\n  title     = {Probing Temporal Reasoning in Transformer-Based Models},\n  author    = {Doe, Jane and Chen, Robert},\n  booktitle = {Findings of the 2024 Conference on Empirical Methods in Natural Language Processing},\n  year      = {2024},\n  publisher = {Association for Computational Linguistics}\n}",
-    "highlighted": true
-  },
-  {
-    "id": "doe2024consistency",
-    "title": "Evaluating Consistency in Large Language Model Outputs Across Domains",
-    "authors": ["Jane Doe", "Alice Brown", "John Smith"],
-    "highlightedAuthor": "Jane Doe",
-    "year": 2024,
-    "venue": {
-      "label": "arXiv 2024",
+      "label": "arXiv 2026",
       "type": "preprint"
     },
     "award": null,
     "links": [
-      { "type": "paper", "label": "Paper", "url": "#" }
+      { "type": "paper",   "label": "Paper", "url": "https://arxiv.org/abs/2605.23220" }
     ],
-    "bibtex": "@article{doe2024consistency,\n  title   = {Evaluating Consistency in Large Language Model Outputs Across Domains},\n  author  = {Doe, Jane and Brown, Alice and Smith, John},\n  journal = {arXiv preprint arXiv:2401.00000},\n  year    = {2024}\n}",
+    "bibtex": "@misc{guo2026wmattackautomatedattacksearch,\n    title={WMAttack: Automated Attack Search for Adversarial Evaluation of World-Model Agents}, \n    author={Zhixiang Guo and Siyuan Liang and Shi Fu and Cheng Guo and Andras Balogh and Mark Jelasity and Dacheng Tao},\n    year={2026},\n    eprint={2605.23220},\n    archivePrefix={arXiv},\n    primaryClass={cs.LG},\n    url={https://arxiv.org/abs/2605.23220}\n}",
+    "highlighted": false
+  },
+  {
+    "id": "guo2026worldmodelsdreamwrong",
+    "title": "When World Models Dream Wrong: Physical-Conditioned Adversarial Attacks against World Models",
+    "authors": ["Zhixiang Guo", "Siyuan Liang", "András Balogh", "Noah Lunberry", "Rong-Cheng Tu", "Márk Jelasity", "Dacheng Tao"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2026,
+    "venue": {
+      "label": "arXiv 2026",
+      "type": "preprint"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper",   "label": "Paper", "url": "https://arxiv.org/abs/2602.18739" }
+    ],
+    "bibtex": "@misc{guo2026worldmodelsdreamwrong,\n    title={When World Models Dream Wrong: Physical-Conditioned Adversarial Attacks against World Models}, \n    author={Zhixiang Guo and Siyuan Liang and Andras Balogh and Noah Lunberry and Rong-Cheng Tu and Mark Jelasity and Dacheng Tao},\n    year={2026},\n    eprint={2602.18739},\n    archivePrefix={arXiv},\n    primaryClass={cs.LG},\n    url={https://arxiv.org/abs/2602.18739}\n}",
+    "highlighted": false
+  },
+  {
+    "id": "balogh2026verification",
+    "title": "Verification of the Implicit World Model in a Generative Model via Adversarial Sequences",
+    "authors": ["András Balogh", "Márk Jelasity"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2026,
+    "venue": {
+      "label": "ICLR 2026",
+      "type": "conf"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper",   "label": "Paper", "url": "https://openreview.net/forum?id=BLOIB8CwBI" },
+      { "type": "code",    "label": "Code",  "url": "https://github.com/szegedai/world-model-verification" },
+      { "type": "dataset", "label": "Datasets", "url": "https://huggingface.co/datasets/Erasiel/chess-datasets"},
+      { "type": "dataset", "label": "Models", "url": "https://huggingface.co/datasets/Erasiel/chess-models"}
+    ],
+    "bibtex": "@inproceedings{\n      balogh2026verification,\n      title={Verification of the Implicit World Model in a Generative Model via Adversarial Sequences},\n      author={Andr{\\'a}s Balogh and M{\\'a}rk Jelasity},\n      booktitle={The Fourteenth International Conference on Learning Representations},\n      year={2026},\n      url={https://openreview.net/forum?id=BLOIB8CwBI}\n}",
+    "highlighted": true
+  },
+  {
+    "id": "balogh2025stitch",
+    "title": "How Not to Stitch Representations to Measure Similarity: Task Loss Matching Versus Direct Matching",
+    "authors": ["András Balogh", "Márk Jelasity"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2025,
+    "venue": {
+      "label": "AAAI 2025",
+      "type": "conf"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper",   "label": "Paper", "url": "https://ojs.aaai.org/index.php/AAAI/article/view/33698" },
+      { "type": "code",    "label": "Code",  "url": "https://github.com/szegedai/stitching-ood" }
+    ],
+    "bibtex": "@article{balogh2025stitch,\n    author  = {Balogh, Andr{\\'a}s and Jelasity, M{\\'a}rk},\n    title   = {How Not to Stitch Representations to Measure Similarity: Task Loss Matching Versus Direct Matching},\n    journal = {Proceedings of the AAAI Conference on Artificial Intelligence},\n    volume   = {39},\n    number   = {15},\n    pages    = {15472--15480},\n    year     = {2025},\n    doi      = {10.1609/aaai.v39i15.33698},\n    url      = {https://doi.org/10.1609/aaai.v39i15.33698}\n}",
+    "highlighted": true
+  },
+  {
+    "id": "pmlr-v202-balogh23a",
+    "title": "On the Functional Similarity of Robust and Non-Robust Neural Representations",
+    "authors": ["András Balogh", "Márk Jelasity"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2023,
+    "venue": {
+      "label": "ICML 2023",
+      "type": "conf"
+    },
+    "award": null,
+    "links": [
+      { "type": "paper",   "label": "Paper", "url": "https://proceedings.mlr.press/v202/balogh23a.html" },
+      { "type": "code",    "label": "Code",  "url": "https://github.com/szegedai/robust-stitching" }
+    ],
+    "bibtex": "@inproceedings{balogh2023functional,\n    title={On the functional similarity of robust and non-robust neural representations},\n    author={Balogh, Andr{\\'a}s and Jelasity, M{\\'a}rk},\n    booktitle={International Conference on Machine Learning},\n    pages={1614--1635},\n    year={2023},\n    organization={PMLR}\n}",
+    "highlighted": true
+  },
+  {
+    "id": "urban2020new",
+    "title": "A new automated method for analysis of cerebrovascular reserve capacity deficiency by rCBF SPECT with acetazolamide test: Preliminary results",
+    "authors": ["Szabolcs Urbán", "Gábor Sipka", "András Balogh", "Zsuzsanna Besenyi", "János Csirik", "László Pávics"],
+    "highlightedAuthor": "András Balogh",
+    "year": 2020,
+    "venue": {
+      "label": "EANM 2020",
+      "type": "conf"
+    },
+    "award": null,
+    "links": [
+    ],
+    "bibtex": "@article{urban2020new,\n    title={A new automated method for analysis of cerebrovascular reserve capacity deficiency by rCBF SPECT with acetazolamide test: Preliminary results},\n    author={Urb{\\'a}n, Szabolcs and Sipka, G{\\'a}bor and Balogh, Andr{\\'a}s and Besenyi, Zsuzsanna and Csirik, J{\\'a}nos and Pavics, Laszlo and others},\n    year={2020},\n    publisher={EANM'20}\n}",
     "highlighted": false
   }
 ]
